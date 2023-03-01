@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.TempMapper">
+    <select id="findTempVoById" resultType="vo.TempVo">
+        select
+            *
+        from
+            xxxxx
+        where
+            id = #{id} and
+            name = #{name}
+    </select>
+    <select id="findTempVoByObject" resultType="vo.TempVo">
+        select
+            *
+        from
+            xxxxx
+        <where>
+            <if test="true">
+                and id = #{id}
+            </if>
+            <if test="name!=null and name!=''">
+                and name = #{name}
+            </if>
+            </where>
+
+    </select>
+    <select id="findTempVoByMap" resultType="vo.TempVo">
+        select
+            *
+        from
+            xxxxx
+        where
+            id = #{id} and
+            name = #{name}
+
+    </select>
+    <select id="findTempVoByList" resultType="vo.TempVo">
+        select
+            *
+        from
+            xxxxx
+        where
+            id in <foreach collection="list" item="eachId" index="index"
+                           open="(" close=")" separator=",">
+        #{eachId}
+    </foreach>
+
+    </select>
+</mapper>
